@@ -1,0 +1,15 @@
+[tool.black]
+line-length = 120
+skip-string-normalization = true
+exclude='''
+  /(
+      \.git
+    | \.venv
+    | migrations
+    | \.db\.sqlite3
+    | __pycache__
+    | \.log
+    | \.pyc
+    | airflow_docker
+  )/
+'''

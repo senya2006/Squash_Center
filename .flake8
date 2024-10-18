@@ -1,0 +1,5 @@
+[flake8]
+max-line-length = 120
+exclude = migrations, .venv, .git, db.sqlite3, __pycache__, .log, .pyc, airflow_docker
+ignore = F401
+skip-string-normalization = true
