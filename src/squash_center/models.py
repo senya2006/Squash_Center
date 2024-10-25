@@ -3,16 +3,19 @@ import uuid
 from django.core.exceptions import ValidationError
 from django.db import models
 
-from accounts.models import BaseModel, Player
+from accounts.models import Player
+from common.models import BaseModel
 
 
 class SquashCourt(BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255)
     is_operational = models.BooleanField(default=True)
+    price_per_hour = models.DecimalField(max_digits=6, decimal_places=2, default=250)
+    location = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
-        return f"Court {self.name}"
+        return f"Court {self.name} (Location: {self.location})"
 
 
 class RentalEquipment(BaseModel):
